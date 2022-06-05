@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initState = {
-    books: []
+    books: [],
+    addBook: false
 }
 
 const bookSlice = createSlice({
@@ -9,14 +10,7 @@ const bookSlice = createSlice({
     initialState: initState,
     reducers: {
         createBook(state, action) {
-            state.books.push({
-                book: action.payload.name,
-                id: new Date().toLocaleString(),
-                complete: false,
-                text: action.payload.text,
-                avtor: action.payload.avtour,
-                img: action.payload.img,
-            })
+            state.books.push(action.payload)
         }
     }
 })
